@@ -38,20 +38,7 @@ body {
     padding-left: 250px;
 }
 
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
+
 
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
@@ -85,35 +72,6 @@ body {
     position: absolute;
 
 }
-.menu-btn {
-    position: absolute;
-    z-index: 1000;
-    margin: 20px;
-    color: white;
-    background: black;
-
-}
-
-.menu-btn:hover {
-    color: gold;
-
-}
-
-.menu-btn-2 {
-    top:24px;
-    position: absolute;
-    z-index: 1000;
-    margin: 20px;
-    color: black;
-    transform: scaleY(-1);
-    transform: scaleY(-1);
-    background: white;
-
-}
-
-.menu-btn-2:hover {
-    color: gold;
-}
 
 .sidebar-nav li {
     text-indent: 20px;
@@ -139,7 +97,9 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 100%;
     font-size: 18px;
     line-height: 60px;
 
@@ -177,35 +137,3 @@ body {
     }
 }
 
- @media only screen and (min-width: 40em) {
-
-   .tracknartLetters{
-   margin-top: 20%;
-   left:25%;
-   position:absolute;
-   font-size: 26px;
-   z-index: 2;
-  background: transparent; }
-
-  .btn-circle {
-   margin-top: 45%;
-   left:48%;
-   position:absolute;
-   font-size: 26px;
-   z-index: 1000;
-  width: 3rem;
-  height: 3rem;
-
-  color: white;
-  border: 2px solid white;
-  border-radius: 100% !important;
-  background: transparent; }
-
-  .btn-circle:focus, .btn-circle:hover {
-    color: white;
-    outline: none;
-    background: rgba(255, 255, 255, 0.1); }
-
-    .navbar {
-        display:none; }
-}

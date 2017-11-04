@@ -9,10 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>{{ main.name}}</title>
+    <!-- Google font size -->
+    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- usercss -->
+    <link href="/static/festival/media/{{ main.css_animation }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{% static 'festival/css/tna.css' %}" rel="stylesheet">
@@ -28,43 +33,120 @@
 
     <style type="text/css">
 
+ @media only screen and (min-width: 40em) {
 
-.up {
+   .tracknartLetters{
+   margin-top: 20%;
+   left:25%;
+   position:absolute;
+   font-size: 26px;
+   z-index: 2;
+  background: transparent; }
 
-    {% if main.use_of_image_background_up %}
-        background-image: url("/static/festival/media/{{ main.background_image_up }}");
+  .btn-circle {
+   margin-top: 45%;
+   left:48%;
+   position:absolute;
+   font-size: 26px;
+   z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+
+  border-color: {{ main.color_2 }}!important;
+  color: {{ main.color_2 }};
+  border: 2px solid white;
+  border-radius: 100% !important;
+  background: transparent; }
+
+  .btn-circle:focus, .btn-circle:hover {
+    border-color: {{ main.color_highlight }}!important;
+    color: {{ main.color_highlight }};
+    outline: none;
+    background: rgba(255, 255, 255, 0.1); }
+
+    .navbar {
+        display:none; }
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    background: {{ main.color_1 }};
+    {% if main.use_image_as_background %}
+        {% if main.background_image %}
+            background-image: url("/static/festival/media/{{ main.background_image }}");
+        {% endif %}
     {% endif %}
-    background-color: {{ main.background_color_up }};
-    }
 
-
-.down {
-
-    {% if main.use_of_image_background_down %}
-        background-image: url("/static/festival/media/{{ main.background_image_down }}");
+    {% if main.no_repeat_image %}
+        background-repeat: no-repeat;
     {% endif %}
-    background-color: {{ main.background_color_down }};
-    }
+
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: {{ main.color_2 }};
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.menu-btn {
+    position: absolute;
+    z-index: 1000;
+    margin: 20px;
+    color: {{ main.color_1 }};
+    background: {{ main.color_2 }};
+
+}
+
+.menu-btn:hover {
+    color: {{ main.color_highlight }};
+
+}
+
+.menu-btn-2 {
+    top:24px;
+    position: absolute;
+    z-index: 1000;
+    margin: 20px;
+    transform: scaleY(-1);
+    transform: scaleY(-1);
+    color: {{ main.color_2 }};
+    background: {{ main.color_1 }};
+
+}
+
+.menu-btn-2:hover {
+    color: {{ main.color_highlight }};
+}
+
+
 
 .navigation_bar_font {
-
     font-family: '{{ main.font_style_navigation_bar }}';
     font-size: {{ main.font_size_navigation_bar }}px;
-    color: {{ main.foreground_color_navigation_bar }};
+    color: {{ main.color_1 }};
     }
 
+.navigation_bar_font:hover {
 
-.navigation_bar_background {
-    background: {{ main.background_color_navigation_bar }};
+    color: {{ main.color_highlight }};
     }
 
 body {
-    background-color: {{ main.background_color_down }};
+    font-family: '{{ main.font_style_navigation_bar }}';
+
     }
-
-
-
-
 
 
 
@@ -87,8 +169,12 @@ body {
                     <a href="#home">
                         <span class="fa solo">
                             <div class="navigation_bar_font">
-                            Track'N'Art
-                            </div>
+                            {% if main.use_side_bar_image %}
+                            <img src=/static/festival/media/{{ main.side_bar_image }}>
+                            {% else %}
+                                    {{ main.name }}
+                            {% endif %}
+                              </div>
                         </span>
                     </a>
                 </li>
@@ -119,11 +205,11 @@ body {
                     <div class="col">
                         <a id="menu-toggle" href="#">
                             <div class="   menu-btn">
-                                   ▼ MENU *
+                                ▼ MENU *
 
                             </div>
                             <div class="  menu-btn-2">
-                                   ▼ MENU *
+                                ▼ MENU *
 
                             </div>
 
@@ -132,11 +218,12 @@ body {
                         <a href="#down" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
+                        {% if main.use_image_in_front_of_video %}
                         <div class="tracknartLetters ">
-                            <img class="img-fluid animated bounceInUp "
-                                 src="{% static 'festival/img/tna/png/tna.png' %}"
-                                 alt="tna.png">
+                            <img class="img-fluid animated bounceInUp " src=/static/festival/media/{{ main.image_in_front_of_video }}>
                         </div>
+                        {% endif %}
+
                         <div class="embed-responsive embed-responsive-4by3">
 
                             <iframe src="https://www.facebook.com/plugins/video.php?allowfullscreen=true&autoplay=true&container_width=800&href=https%3A%2F%2Fwww.facebook.com%2FTrackNArt.Association%2Fvideos%2F1482956355095863%2F&show_text=0&width=560"
@@ -150,10 +237,11 @@ body {
 
             <div id="down" class="down">
                 <div class="row">
-                    {% for link in links.all %}
+                    {% for card in cards.all %}
                     <div class="col-lg-6">
-                        <a id ="link" href={{ link.https }} >
-                        <img class="img-fluid " src=/static/festival/media/{{ link.image }} alt=/static/festival/media/{{ link.image }}>
+                        <a id="link" href={{ card.https }}>
+                            <img class="img-fluid " src=/static/festival/media/{{ card.image }}
+                                 alt=/static/festival/media/{{ card.image }} class="img-responsive">
                         </a>
                     </div><!-- /.col-lg-6 -->
 
@@ -178,6 +266,8 @@ body {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+
 
 
 

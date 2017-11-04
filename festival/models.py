@@ -1,6 +1,5 @@
 from django.db import models
 from colorfield.fields import ColorField
-import os
 
 
 # Create your models here.
@@ -13,7 +12,7 @@ class Page(models.Model):
         return str(self.name)
 
 
-class Link(models.Model):
+class Card(models.Model):
     name = models.CharField(max_length=30, default="card")
     image = models.FileField('File', upload_to='./festival/userImages/')
     https = models.CharField(max_length=999, default="#")
@@ -33,22 +32,32 @@ class Link(models.Model):
 
 class Main(models.Model):
     name = models.CharField(max_length=30)
+
     video_link = models.URLField()
-    links = models.ManyToManyField(Link)
+
+    use_image_in_front_of_video = models.BooleanField(default=False)
+    image_in_front_of_video = models.FileField('File', upload_to='./festival/userImages/')
+
+    cards = models.ManyToManyField(Card)
     pages = models.ManyToManyField(Page)
 
-    background_color_up = ColorField(default='#000000')
-    use_of_image_background_up = models.BooleanField(default=False)
-    background_image_up = models.FileField('File', upload_to='./festival/userImages/')
+    color_1 = ColorField(default='#000000')
+    color_2 = ColorField(default='#FFFFFF')
+    color_highlight = ColorField(default='#FFFFFF')
 
-    background_color_down = ColorField(default='#FFFFFF')
-    use_of_image_background_down = models.BooleanField(default=False)
-    background_image_down = models.FileField('File', upload_to='./festival/userImages/')
+    use_image_as_background = models.BooleanField(default=False)
+    no_repeat_image = models.BooleanField(default=False)
+    background_image = models.FileField('File', upload_to='./festival/userImages/')
+
+
+    use_side_bar_image = models.BooleanField(default=False)
+    side_bar_image = models.FileField('File', upload_to='./festival/userImages/')
+
+
 
     font_style_navigation_bar = models.CharField( max_length =50, default='Crimson Text')
     font_size_navigation_bar = models.IntegerField(default='22')
-    foreground_color_navigation_bar = ColorField(default='#FFFFFF')
-    background_color_navigation_bar = ColorField(default='#000000')
+
 
     def __str__(self):
         return str(self.name)
@@ -63,3 +72,5 @@ class Main(models.Model):
 
     fileLink.allow_tags = True
     fileLink.short_description = "File Link"
+
+

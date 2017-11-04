@@ -19,12 +19,12 @@ def sideBar(request):
 def carrousel(request):
     main = models.Main.objects.get(name="Track'n'Art")
     pages = main.pages
-    links = main.links
+    cards = main.cards
     videoLink = main.video_link
 
     context = {
         'pages': pages,
-        'links': links,
+        'cards': cards,
         'videoLink': videoLink,
     }
 
@@ -34,12 +34,12 @@ def carrousel(request):
 def carrousel1(request):
     main = models.Main.objects.get(name="Track'n'Art")
     pages = main.pages
-    links = main.links
+    cards = main.cards
     videoLink = main.video_link
 
     context = {
         'pages': pages,
-        'links': links,
+        'cards': cards,
         'videoLink': videoLink,
     }
 
@@ -50,13 +50,13 @@ def tna(request):
     main = models.Main.objects.get(name="Track'n'Art")
     main = main
     pages = main.pages
-    links = main.links
+    cards = main.cards
     videoLink = main.video_link
 
     context = {
         'main' : main,
         'pages': pages,
-        'links': links,
+        'cards': cards,
         'videoLink': videoLink,
     }
 
