@@ -1,0 +1,210 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'festival/css/tna.css' %}" rel="stylesheet">
+
+    <!-- Google font-->
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'festival/templates/grayscale/vendor/font-awesome/css/font-awesome.min.css' %}"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/animatecss/2.1.0/animate.min.css"><!-- load animate -->
+
+
+    <style type="text/css">
+
+
+.up {
+
+    {% if main.use_of_image_background_up %}
+        background-image: url("/static/festival/media/{{ main.background_image_up }}");
+    {% endif %}
+    background-color: {{ main.background_color_up }};
+    }
+
+
+.down {
+
+    {% if main.use_of_image_background_down %}
+        background-image: url("/static/festival/media/{{ main.background_image_down }}");
+    {% endif %}
+    background-color: {{ main.background_color_down }};
+    }
+
+.navigation_bar_font {
+
+    font-family: '{{ main.font_style_navigation_bar }}';
+    font-size: {{ main.font_size_navigation_bar }}px;
+    color: {{ main.foreground_color_navigation_bar }};
+    }
+
+
+.navigation_bar_background {
+    background: {{ main.background_color_navigation_bar }};
+    }
+
+body {
+    background-color: {{ main.background_color_down }};
+    }
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="navigation_bar_background">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#home">
+                        <span class="fa solo">
+                            <div class="navigation_bar_font">
+                            Track'N'Art
+                            </div>
+                        </span>
+                    </a>
+                </li>
+                {% for page in pages.all %}
+                <li>
+                    <a href="#anch4" data-scroll>
+                            <span class="fa  solo">
+                                                        <div class="navigation_bar_font">
+
+                                {{ page.name }}
+                                                                                    </div>
+
+                            </span>
+
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="up">
+                <div class="row">
+                    <div class="col">
+                        <a id="menu-toggle" href="#">
+                            <div class="   menu-btn">
+                                ▼ MENU *
+
+                            </div>
+                            <div class="  menu-btn-2">
+                                ▼ MENU *
+
+                            </div>
+
+                        </a>
+
+                        <a href="#down" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                        <div class="tracknartLetters ">
+                            <img class="img-fluid animated bounceInUp "
+                                 src="{% static 'festival/img/tna/png/tna.png' %}"
+                                 alt="tna.png">
+                        </div>
+                        <div class="embed-responsive embed-responsive-4by3">
+
+                            <iframe src="https://www.facebook.com/plugins/video.php?allowfullscreen=true&autoplay=true&container_width=800&href=https%3A%2F%2Fwww.facebook.com%2FTrackNArt.Association%2Fvideos%2F1482956355095863%2F&show_text=0&width=560"
+                                    style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                                    allowTransparency="true" allowFullScreen="true"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="down" class="down">
+                <div class="row">
+                    {% for link in links.all %}
+                    <div class="col-lg-6">
+                        <img class="img-fluid "
+                             src=/static/festival/media/{{ link.image }}
+                             alt=/static/festival/media/{{ link.image }}>
+                    </div><!-- /.col-lg-6 -->
+                    {% endfor %}
+                </div><!-- /.row -->
+            </div><!-- /.down -->
+        </div>
+    </div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/smoothHref.js' %}"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
