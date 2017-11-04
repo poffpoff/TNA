@@ -12,6 +12,7 @@ class Page(models.Model):
 class Link(models.Model):
     name = models.CharField(max_length=30)
     image = models.FileField('File', upload_to='./festival/userImages/')
+    https = models.CharField(max_length=999)
 
     def fileLink(self):
         if self.File:
