@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/vcs.xml
+.idea/workspace.xml
+TNA/__pycache__/
+festival/__pycache__/
+festival/migrations/__pycache__/
