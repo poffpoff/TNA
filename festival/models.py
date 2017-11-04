@@ -9,10 +9,17 @@ class Page(models.Model):
     name = models.CharField(max_length=30)
 
 
+    def __str__(self):
+        return str(self.name)
+
+
 class Link(models.Model):
     name = models.CharField(max_length=30, default="card")
     image = models.FileField('File', upload_to='./festival/userImages/')
     https = models.CharField(max_length=999, default="#")
+
+    def __str__(self):
+        return str(self.name)
 
     def fileLink(self):
         if self.File:
@@ -42,6 +49,9 @@ class Main(models.Model):
     font_size_navigation_bar = models.IntegerField(default='22')
     foreground_color_navigation_bar = ColorField(default='#FFFFFF')
     background_color_navigation_bar = ColorField(default='#000000')
+
+    def __str__(self):
+        return str(self.name)
 
 
     def fileLink(self):
