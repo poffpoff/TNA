@@ -95,26 +95,24 @@ body {
 }
 
 .menu-btn:hover {
-    color: white;
-    text-decoration: underline;
+    color: gold;
 
 }
 
 .menu-btn-2 {
-    top:30px;
+    top:24px;
     position: absolute;
     z-index: 1000;
     margin: 20px;
     color: black;
     transform: scaleY(-1);
     transform: scaleY(-1);
-    background: withe;
+    background: white;
 
 }
 
 .menu-btn-2:hover {
-    color: black;
-    text-decoration: underline;
+    color: gold;
 }
 
 .sidebar-nav li {

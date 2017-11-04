@@ -119,11 +119,11 @@ body {
                     <div class="col">
                         <a id="menu-toggle" href="#">
                             <div class="   menu-btn">
-                                ▼ MENU *
+                                   ▼ MENU *
 
                             </div>
                             <div class="  menu-btn-2">
-                                ▼ MENU *
+                                   ▼ MENU *
 
                             </div>
 
@@ -152,10 +152,11 @@ body {
                 <div class="row">
                     {% for link in links.all %}
                     <div class="col-lg-6">
-                        <img class="img-fluid "
-                             src=/static/festival/media/{{ link.image }}
-                             alt=/static/festival/media/{{ link.image }}>
+                        <a id ="link" href={{ link.https }} >
+                        <img class="img-fluid " src=/static/festival/media/{{ link.image }} alt=/static/festival/media/{{ link.image }}>
+                        </a>
                     </div><!-- /.col-lg-6 -->
+
                     {% endfor %}
                 </div><!-- /.row -->
             </div><!-- /.down -->
