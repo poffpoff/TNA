@@ -14,17 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'twitterBootStrapExample', views.twitterBootStrapExample, name='twitterBootStrapExample'),
-    url(r'verticalCollapse', views.verticalCollapse, name='verticalCollapse'),
-    url(r'sideBar', views.sideBar, name='sideBar'),
-    url(r'carrousel1', views.carrousel1, name='carrousel1'),
-    url(r'grayscale', views.grayscale, name='grayscale'),
-    url(r'landing', views.landing, name='landing'),
-    url(r'carrousel', views.carrousel, name='carrousel'),
     url(r'tna', views.tna, name='tna'),
 
 ]
