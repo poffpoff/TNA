@@ -17,6 +17,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'tna', views.tna, name='tna'),
-
+    url(r'^(?P<path>[a-z]*)/$', views.index, name='index'),
 ]
