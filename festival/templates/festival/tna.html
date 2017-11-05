@@ -16,19 +16,13 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
 
-    <!-- instagram -->
-    <link href="/static/festival/css/instagram.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{% static 'festival/css/tna.css' %}" rel="stylesheet">
 
-    <!-- Google font-->
-    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
 
     <!-- Custom fonts for this template -->
-    <link href="{% static 'festival/templates/grayscale/vendor/font-awesome/css/font-awesome.min.css' %}"
-          rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://cdn.jsdelivr.net/animatecss/2.1.0/animate.min.css"><!-- load animate -->
+    <link href="{% static 'festival/templates/grayscale/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
 
     <style type="text/css">
@@ -386,25 +380,25 @@ body {
         <div class="container-fluid">
             <div class="up">
                 <div class="row">
-                    <div class="col">
-                        <a id="menu-toggle" href="#">
-                            <div class="   menu-btn">
+                    <div class="col ">
+                        <a id="menu-toggle"  href="#">
+                            <div class="   menu-btn fadeIn">
                                 ▼ MENU *
 
                             </div>
-                            <div class="  menu-btn-2">
+                            <div class="  menu-btn-2 fadeIn">
                                 ▼ MENU *
 
                             </div>
 
                         </a>
 
-                        <a href="#down" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
+                        <a href="#down" class="btn btn-circle page-scroll fadeIn">
+                            <i class="fa fa-angle-double-down "></i>
                         </a>
                         {% if main.use_image_in_front_of_video %}
                         <div class="tracknartLetters ">
-                            <img class="img-fluid animated bounceInUp " src=/static/festival/media/{{
+                            <img class="img-fluid" src=/static/festival/media/{{
                                  main.image_in_front_of_video }}>
                         </div>
                         {% endif %}
@@ -420,7 +414,7 @@ body {
                 </div>
             </div>
 
-            <div id="down" class="down">
+            <div id="down" class="down fadeInUpBig">
                 <div class="row">
                     {% for card in cards.all %}
                     <div class="col-lg-6">
