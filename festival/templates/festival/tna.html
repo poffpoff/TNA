@@ -16,8 +16,8 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
 
-    <!-- usercss -->
-    <link href="/static/festival/media/{{ main.css_animation }}" rel="stylesheet">
+    <!-- instagram -->
+    <link href="/static/festival/css/instagram.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{% static 'festival/css/tna.css' %}" rel="stylesheet">
@@ -99,6 +99,147 @@
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+#sidebar-wrapper-footer {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    bottom:0px;
+    width: 0;
+    height: 10%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: {{ main.color_2 }};
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+
+
+
+.instagram a{
+  {% if main.use_official_color_for_icons %}
+      display: inline-block;
+      text-align: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 6px;
+      color: {{ main.color_2}};
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+   {% else %}
+      color: {{ main.color_1}};
+  {% endif %}
+
+}
+
+.instagram a:hover {
+
+  {% if main.use_official_color_for_icons %}
+
+      display: inline-block;
+      text-align: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 6px;
+      color: {{ main.color_2}};
+      background: {{ main.color_highlight }};;
+   {% else %}
+         color: {{ main.color_highlight}};
+   {% endif %}
+    text-decoration: none;
+
+}
+
+.facebook a{
+    padding:5px;
+    {% if main.use_official_color_for_icons %}
+         color: blue;
+    {% else %}
+      color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.facebook a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }};
+    text-decoration: none;
+    }
+
+.twitter a{
+    padding:5px;
+
+      {% if main.use_official_color_for_icons %}
+         color: rgb(0, 172, 237);
+       {% else %}
+         color: {{ main.color_1}};
+    {% endif %}:
+}
+
+.twitter a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }};
+    text-decoration: none;
+
+    }
+
+
+.youtube a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color: #cc181e ;
+     {% else %}
+        color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.youtube a:hover{
+    padding:5px;
+
+    color:{{ main.color_highlight }};
+        text-decoration: none;
+
+    }
+
+
+.contact-us a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color:grey;
+      {% else %}
+        color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.contact-us a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }} ;
+    text-decoration: none;
+
+    }
+
+.snapchat a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color:rgb(255, 252, 0);
+      {% else %}
+         color: {{ main.color_1}};
+    {% endif %}
+
+    }
+
+.snapchat a:hover{
+    padding:5px;
+
+    color:{{ main.color_highlight }};
+    text-decoration: none;
+    }
 
 .menu-btn {
     position: absolute;
@@ -158,14 +299,13 @@ body {
 
 <body>
 
-
 <div id="wrapper">
 
     <!-- Sidebar -->
     <div class="navigation_bar_background">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
+                <div class="sidebar-brand">
                     <a href="#home">
                         <span class="fa solo">
                             <div class="navigation_bar_font">
@@ -177,7 +317,7 @@ body {
                               </div>
                         </span>
                     </a>
-                </li>
+                </div>
                 {% for page in pages.all %}
                 <li>
                     <a href="#anch4" data-scroll>
@@ -192,7 +332,51 @@ body {
                     </a>
                 </li>
                 {% endfor %}
+
+
             </ul>
+
+
+        </div>
+        <div id="sidebar-wrapper-footer">
+
+            {% if main.show_instagram %}
+            <span class="instagram" class="fa fa-instagram fa-2x">
+                <a target="_blank" href={{ main.https_instagram }} class="fa fa-instagram fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_facebook %}
+            <span class="facebook">
+                <a target="_blank" href={{ main.https_facebook }} class="fa fa-facebook-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_twitter %}
+            <span class="twitter">
+                <a target="_blank" href={{ main.https_twitter }} class="fa fa-twitter-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_snapchat %}
+            <span class="snapchat">
+                <a target="_blank" href={{ main.https_snapchat }} class="fa fa-snapchat-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_youtube %}
+            <span class="youtube">
+                <a target="_blank" href={{ main.https_youtube }} class="fa fa-youtube-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_contact_us %}
+            <span class="contact-us">
+                <a target="_blank" href={{ main.https_contact_us }} class="fa fa-envelope-o fa-2x"></a>
+            </span>
+            {% endif %}
+
+
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -220,7 +404,8 @@ body {
                         </a>
                         {% if main.use_image_in_front_of_video %}
                         <div class="tracknartLetters ">
-                            <img class="img-fluid animated bounceInUp " src=/static/festival/media/{{ main.image_in_front_of_video }}>
+                            <img class="img-fluid animated bounceInUp " src=/static/festival/media/{{
+                                 main.image_in_front_of_video }}>
                         </div>
                         {% endif %}
 
@@ -266,6 +451,13 @@ body {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+
+
+
+
+
+
 
 
 

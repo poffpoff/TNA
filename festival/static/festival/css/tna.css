@@ -43,6 +43,9 @@ body {
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
 }
+#wrapper.toggled #sidebar-wrapper-footer {
+    width: 250px;
+}
 
 #page-content-wrapper {
     width: 100%;
@@ -97,8 +100,8 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand {
-    margin-right: 10px;
-    margin-top: 10px;
+  text-align: center;
+    margin-top: 20px;
     height: 100%;
     font-size: 18px;
     line-height: 60px;
@@ -114,6 +117,17 @@ body {
     background: none;
 }
 
+
+
+
+
+
+#sidebar-wrapper-footer {
+text-align:center;
+}
+
+
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 0;
@@ -124,7 +138,13 @@ body {
     #sidebar-wrapper {
         width: 0;
     }
+    #sidebar-wrapper-footer {
+        width: 0;
+    }
     #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+    #wrapper.toggled #sidebar-wrapper-footer {
         width: 250px;
     }
     #page-content-wrapper {
