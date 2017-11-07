@@ -18,7 +18,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'festival/css/tna.css' %}" rel="stylesheet">
+    <link href="{% static 'festival/css/event.css' %}" rel="stylesheet">
 
 
     <!-- Custom fonts for this template -->
@@ -29,12 +29,12 @@
 
  @media only screen and (min-width: 40em) {
 
-   .tracknartLetters{
+   .use_image_in_front_of_video{
    margin-top: 20%;
    left:25%;
    position:absolute;
    font-size: 26px;
-   z-index: 2;
+   z-index: 50;
   background: transparent; }
 
   .btn-circle {
@@ -397,10 +397,7 @@ body {
                             <i class="fa fa-angle-double-down "></i>
                         </a>
                         {% if main.use_image_in_front_of_video %}
-                        <div class="tracknartLetters ">
-                            <img class="img-fluid" src=/static/festival/media/{{
-                                 main.image_in_front_of_video }}>
-                        </div>
+                            <img class="img-fluid use_image_in_front_of_video" src=/static/festival/media/{{main.image_in_front_of_video }}>
                         {% endif %}
 
                         <div class="embed-responsive embed-responsive-4by3">
