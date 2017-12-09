@@ -5,3 +5,5 @@
 TNA/__pycache__/
 festival/__pycache__/
 festival/migrations/__pycache__/
+festival/migrations/
+db.sqlite3
