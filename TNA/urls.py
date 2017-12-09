@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views import static
 from TNA import settings
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('festival.urls')),
-    url(r'^festival/static/festival/media/(?P<path>.*)$', 'django.views.static.serve',
+    url(r'^festival/static/festival/media/(?P<path>.*)$', static.serve,
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': False}),
 ]
