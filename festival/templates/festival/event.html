@@ -27,8 +27,7 @@
 
     <style type="text/css">
 
- @media only screen and (min-width: 40em) {
-
+@media only screen and (min-width: 40.063em) {
    .use_image_in_front_of_video{
    margin-top: 20%;
    left:25%;
@@ -56,11 +55,14 @@
     border-color: {{ main.color_highlight }}!important;
     color: {{ main.color_highlight }};
     outline: none;
-    background: rgba(255, 255, 255, 0.1); }
+    background: rgba(255, 255, 255, 0.1);
+    }
 
     .navbar {
         display:none; }
+    }
 }
+
 
 #page-content-wrapper {
     width: 100%;
@@ -287,6 +289,7 @@ body {
 
 
 
+
     </style>
 
 </head>
@@ -381,7 +384,7 @@ body {
             <div class="up">
                 <div class="row">
                     <div class="col ">
-                        <a id="menu-toggle"  href="#">
+                        <a id="menu-toggle" href="#">
                             <div class="   menu-btn fadeIn">
                                 ▼ MENU *
 
@@ -397,7 +400,8 @@ body {
                             <i class="fa fa-angle-double-down "></i>
                         </a>
                         {% if main.use_image_in_front_of_video %}
-                            <img class="img-fluid use_image_in_front_of_video" src=/static/festival/media/{{main.image_in_front_of_video }}>
+                        <img class="img-fluid use_image_in_front_of_video"
+                             src=/static/festival/media/{{main.image_in_front_of_video }}>
                         {% endif %}
 
                         <div class="embed-responsive embed-responsive-4by3">
@@ -443,6 +447,7 @@ body {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
 
 
 

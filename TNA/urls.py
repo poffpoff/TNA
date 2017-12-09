@@ -19,7 +19,7 @@ from TNA import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^festival/', include('festival.urls')),
+    url(r'^', include('festival.urls')),
     url(r'^festival/static/festival/media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': False}),
 ]

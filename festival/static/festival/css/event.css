@@ -172,7 +172,7 @@ text-align:center;
   }
   }
 
-@media(min-width:768px) {
+@media only screen and (min-width: 40.063em) { /* min-width 641px, medium screens */
     #wrapper {
         padding-left: 0;
     }
