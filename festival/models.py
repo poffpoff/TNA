@@ -1,16 +1,27 @@
 from django.db import models
 from colorfield.fields import ColorField
-
+from django.utils import timezone
 
 # Create your models here.
 
-class Page(models.Model):
+class PageType(models.Model):
     name = models.CharField(max_length=30)
-
 
     def __str__(self):
         return str(self.name)
 
+
+class Calendar(PageType):
+
+    def __str__(self):
+        return str(self.name)
+
+class Page(models.Model):
+    name = models.CharField(max_length=30)
+    to = models.ForeignKey(PageType, default=0 ,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.name)
 
 class Card(models.Model):
     name = models.CharField(max_length=30, default="card")

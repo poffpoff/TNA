@@ -24,3 +24,21 @@ def index(request, path):
         return HttpResponse(template.render(context, request))
     else:
         return Http404(path + " does not exist")
+
+def page(request, path):
+        page = models.Page.objects.filter(name=path)[0]
+        if (page.to):
+            if(type(page.to) is models.Calendar):
+                calendar = page.to
+                events = calendar.events
+                dates = calendar.get_dates
+            context = {
+                'calendar': calendar,
+                'events': events,
+                'dates': dates,
+            }
+
+            template = loader.get_template('festival/calendar.html')
+            return HttpResponse(template.render(context, request))
+        else:
+            return Http404(path + " does not exist")
