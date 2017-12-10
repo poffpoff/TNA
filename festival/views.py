@@ -8,7 +8,7 @@ from festival import models
 
 
 def main(request, main_r):
-    main = models.Main.objects.filter(name=main_r)
+    main = models.Main.objects.filter(name__iexact=main_r)
     if (main):
         main = main[0]
         pages = main.pages
@@ -29,9 +29,10 @@ def main(request, main_r):
 
 
 def page(request, main_r, page_r):
-    main = models.Main.objects.filter(name=main_r)
+    main = models.Main.objects.filter(name__iexact=main_r)
     if (main):
-        page = models.Page.objects.filter(name=page_r)
+        main = main[0]
+        page = main.pages.filter(name__iexact=page_r)
         if (page):
             page = page[0]
             if (page.to):
