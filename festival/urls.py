@@ -17,5 +17,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^(?P<path>[a-z]*)/$', views.index, name='index'),
+    url(r'^(?P<main_r>[a-z]*)/$', views.main, name='index'),
+    url(r'^(?P<main_r>[a-z]*)/(?P<page_r>[a-z]*)/$', views.page, name='index'),
 ]
