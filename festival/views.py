@@ -35,8 +35,8 @@ def page(request, main_r, page_r):
         page = main.pages.filter(name__iexact=page_r)
         if (page):
             page = page[0]
-            if (page.to):
-                if (type(page.to) is models.Calendar):
+            if page.to:
+                if type(page.to) is models.Calendar:
                     calendar = page.to
                     events = calendar.events
                     dates = calendar.get_dates
@@ -48,6 +48,13 @@ def page(request, main_r, page_r):
 
                     template = loader.get_template('festival/calendar.html')
                     return HttpResponse(template.render(context, request))
+                elif type(page.to) is models.Portfolio:
+                        folio = page.to
+                        context = {
+                            'folio': folio,
+                        }
+                        template = loader.get_template('festival/portfolio.html')
+                        return HttpResponse(template.render(context, request))
                 else:
                     return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
             else:

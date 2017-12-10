@@ -10,6 +10,11 @@ class PageType(models.Model):
     def __str__(self):
         return str(self.name)
 
+class Portfolio(PageType):
+
+    def __str__(self):
+        return str(self.name)
+
 
 class Calendar(PageType):
 
@@ -22,6 +27,19 @@ class Page(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+# class Folio du portefolio
+class Folio(models.Model):
+    name = models.CharField(max_length=30, default="card")
+    image = models.FileField('File', upload_to='./festival/userImages/')
+    text = models.CharField(max_length=500, default='Text')
+    # https = models.CharField(max_length=999, default="#")
+
+    def __str__(self):
+        return str(self.name)
+
+
 
 class Card(models.Model):
     name = models.CharField(max_length=30, default="card")
