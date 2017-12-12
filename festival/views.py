@@ -36,7 +36,7 @@ def page(request, main_r, page_r):
         if (page):
             page = page[0]
             if page.to:
-                if type(page.to) is models.Calendar:
+                if hasattr(page.to, 'calendar'):
                     calendar = page.to
                     events = calendar.events
                     dates = calendar.get_dates
@@ -48,10 +48,12 @@ def page(request, main_r, page_r):
 
                     template = loader.get_template('festival/calendar.html')
                     return HttpResponse(template.render(context, request))
-                elif type(page.to) is models.Portfolio:
-                        folio = page.to
+                elif hasattr(page.to, 'portfolio'):
+                        folio = page.to.portfolio.folios
+                        portfolio = page.to.portfolio
                         context = {
                             'folio': folio,
+                            'portfolio': portfolio,
                         }
                         template = loader.get_template('festival/portfolio.html')
                         return HttpResponse(template.render(context, request))
