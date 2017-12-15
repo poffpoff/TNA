@@ -49,8 +49,8 @@ def page(request, main_r, page_r):
                     template = loader.get_template('festival/calendar.html')
                     return HttpResponse(template.render(context, request))
                 elif hasattr(page.to, 'portfolio'):
-                        folio = page.to.portfolio.folios
                         portfolio = page.to.portfolio
+                        folio = models.Folio.objects.filter(portfolio=portfolio)
                         context = {
                             'folio': folio,
                             'portfolio': portfolio,
