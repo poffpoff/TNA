@@ -11,10 +11,19 @@ class PortfolioAdmin(admin.ModelAdmin):
         FolioInline,
     ]
 
-admin.site.register(Main)
-admin.site.register(Page)
-admin.site.register(Card)
+class CardesInline(admin.TabularInline):
+    model = Card
+
+class PagesInline(admin.TabularInline):
+    model = Page
+
+class MainAdmin(admin.ModelAdmin):
+    inlines = [
+        PagesInline,
+        CardesInline
+    ]
+
+admin.site.register(Main, MainAdmin)
 admin.site.register(Calendar)
 admin.site.register(Portfolio, PortfolioAdmin)
-admin.site.register(Folio)
 

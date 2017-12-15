@@ -11,8 +11,8 @@ def main(request, main_r):
     main = models.Main.objects.filter(name__iexact=main_r)
     if (main):
         main = main[0]
-        pages = main.pages
-        cards = main.cards
+        pages = models.Page.objects.filter(main = main)
+        cards = models.Card.objects.filter(main = main)
         videoLink = main.video_link
 
         context = {
