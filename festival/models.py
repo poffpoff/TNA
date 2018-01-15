@@ -11,6 +11,21 @@ class PageType(models.Model):
         return str(self.name)
 
 
+class Accordion(PageType):
+
+    def __str__(self):
+        return str(self.name)
+
+
+# class Folio du portefolio
+class Key(models.Model):
+    accordion = models.ForeignKey(Accordion, default=0)
+    name = models.CharField(max_length=30, default="")
+    text = models.TextField(max_length=999, default='')
+
+    def __str__(self):
+        return str(self.name)
+
 class ThumbnailGallery(PageType):
 
     def __str__(self):
@@ -103,6 +118,9 @@ class Page(models.Model):
     name = models.CharField(max_length=30)
     to = models.ForeignKey(PageType, null=True, blank=True)
     main = models.ForeignKey(Main, on_delete=models.CASCADE)
+
+    def normalizedName(self):
+        return str(self.name).replace(" ","_").lower()
 
     def __str__(self):
         return str(self.name)
