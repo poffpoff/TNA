@@ -53,9 +53,6 @@ class Main(models.Model):
 
     video_link = models.URLField(blank=True)
 
-    use_image_in_front_of_video = models.BooleanField(default=False)
-    image_in_front_of_video = models.FileField('File', upload_to='./festival/userImages/', blank=True)
-
     use_image_as_background = models.BooleanField(default=False)
     no_repeat_image = models.BooleanField(default=False)
     background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
