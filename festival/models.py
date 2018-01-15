@@ -6,6 +6,20 @@ from colorfield.fields import ColorField
 
 class PageType(models.Model):
     name = models.CharField(max_length=30)
+    text = models.TextField(max_length=999, default='')
+
+    use_same_setting_as_main = models.BooleanField(default=True)
+
+    color_1 = ColorField(default='#000000')
+    color_2 = ColorField(default='#FFFFFF')
+    color_highlight = ColorField(default='#FFFFFF')
+
+    font_style = models.CharField(max_length=50, default='Crimson Text')
+    font_size = models.IntegerField(default='22')
+
+    use_image_as_background = models.BooleanField(default=False)
+    no_repeat_image = models.BooleanField(default=False)
+    background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     def __str__(self):
         return str(self.name)

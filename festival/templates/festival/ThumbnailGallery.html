@@ -1,45 +1,6 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "page.html" %}
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>{{ main.name}}</title>
-    <!-- Google font size -->
-    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
-
-
-    <link href="{% static 'festival/css/thumbnail-gallery.css' %}" rel="stylesheet">
-
-
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-
-    <style type="text/css">
-
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-    <!-- Page Content -->
-    <div class="container">
-
-      <h1 class="my-4 text-center ">{{ thumbnailGallery.name }}</h1>
-
+{% block content %}
       <div class="row text-center text-lg-left">
         {% for thumbnail in thumbnail.all %}
         <div class="col-lg-3 col-md-4 col-xs-6">
@@ -48,17 +9,6 @@
           </a>
         </div>
          {% endfor %}
-
       </div>
+{% endblock %}
 
-    </div>
-    <!-- /.container -->
-
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
-
-</body>
-
-</html>

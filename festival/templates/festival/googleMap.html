@@ -1,3 +1,22 @@
+{% extends "page.html" %}
+
+
+{% block content %}
+      <div class="row ">
+        <div class="embed-responsive embed-responsive-4by3">
+
+            <iframe src={{ map.src }}
+                    style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowTransparency="true" allowFullScreen="true"></iframe>
+        </div>
+      </div>
+{% endblock %}
+
+
+
+
+
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">

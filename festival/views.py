@@ -37,9 +37,30 @@ def page(request, main_r, page_r):
         if (page):
             page = page[0]
             if page.to:
+                title = page.to.name
+                text = page.to.text
+                if (page.to.use_same_setting_as_main):
+                    font_style = main.font_style
+                    font_size = main.font_size
+                    color_1 = main.color_1
+                    color_2 = main.color_2
+                    color_highlight = page.to.color_highlight
+                else:
+                    font_style = page.to.font_style
+                    font_size = page.to.font_size
+                    color_1 = page.to.color_1
+                    color_2 = page.to.color_2
+                    color_highlight = page.to.color_highlight
                 if hasattr(page.to, 'thumbnailgallery'):
                     thumbnail = models.Thumbnail.objects.filter(thumbnailGallery=page.to)
                     context = {
+                        'title': title,
+                        'text': text,
+                        'font_style' : font_style,
+                        'font_size' : font_size,
+                        'color_1' : color_1,
+                        'color_2' : color_2,
+                        'color_highlight' : color_highlight,
                         'thumbnailGallery': page.to,
                         'thumbnail': thumbnail,
                     }
@@ -49,6 +70,13 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'portfolio'):
                         folio = models.Folio.objects.filter(portFolio=page.to)
                         context = {
+                            'title': title,
+                            'text': text,
+                            'font_style' : font_style,
+                            'font_size' : font_size,
+                            'color_1' : color_1,
+                            'color_2' : color_2,
+                            'color_highlight' : color_highlight,
                             'folio': folio,
                             'portfolio': page.to,
                         }
@@ -57,6 +85,13 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'accordion'):
                         key = models.Key.objects.filter(accordion=page.to)
                         context = {
+                            'title': title,
+                            'text': text,
+                            'font_style' : font_style,
+                            'font_size' : font_size,
+                            'color_1' : color_1,
+                            'color_2' : color_2,
+                            'color_highlight' : color_highlight,
                             'key': key,
                             'accordion': page.to,
                         }
@@ -65,6 +100,13 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'googlemap'):
                         map = models.GoogleMap.objects.filter(name=page.to.name)[0]
                         context = {
+                            'title': title,
+                            'text': text,
+                            'font_style' : font_style,
+                            'font_size' : font_size,
+                            'color_1' : color_1,
+                            'color_2' : color_2,
+                            'color_highlight' : color_highlight,
                             'map': map,
                             'map.src': map.src,
                         }

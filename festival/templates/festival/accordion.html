@@ -1,56 +1,19 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>{{ main.name}}</title>
-    <!-- Google font size -->
-    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+{% extends "page.html" %}
 
 
-    <link href="{% static 'festival/css/accordion.css' %}" rel="stylesheet">
-
-
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-
-    <style type="text/css">
-
-
-    </style>
-
-</head>
-
-
-<body>
-
-    <div class="container">
-
-      <h1 class="my-4 text-center ">{{ accordion.name }}</h1>
-            <!-- Page Content -->
-
+{% block content %}
         <div id="accordion" role="tablist">
           {% for key in key.all %}
           <div class="card">
             <div class="card-header" role="tab" id="headingOne">
               <h5 class="mb-0">
-                <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" href="#{{ key.id }}" role="button" aria-expanded="true" aria-controls="collapseOne">
                   {{ key.name }}
                 </a>
               </h5>
             </div>
 
-            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="{{ key.id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
                   {{ key.name }}
                 </div>
@@ -59,15 +22,4 @@
           {% endfor %}
 
         </div>
-
-    </div>
-    <!-- /.container -->
-
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock %}

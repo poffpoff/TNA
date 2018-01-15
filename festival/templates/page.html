@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google font size -->
+    <link href="https://fonts.googleapis.com/css?family={{ font_style }}" rel='stylesheet'>
+
+    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'festival/css/portfolio-bootstrap.css' %}" rel="stylesheet">
+
+    <link href="{% static 'festival/css/page.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <title> {{ title }}</title>
+
+    <style type="text/css">
+    .container {
+    font-family: '{{ font_style }}';
+    font-size: {{ font_size }}px;
+    color: {{ color_1 }};
+    }
+    </style>
+
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+     <h1 class="my-4 text-center text-lg-left">{{ title }}</h1>
+     <h1 class="my-4 text-center text-lg-left">{{ text }}</h1>
+
+            {% block content %}{% endblock %}
+    </div>
+    <!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
+</body>
+</html>

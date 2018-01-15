@@ -1,46 +1,7 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>{{ main.name}}</title>
-    <!-- Google font size -->
-    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'festival/css/portfolio-bootstrap.css' %}" rel="stylesheet">
+{% extends "page.html" %}
 
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'festival/css/2-col-portfolio.css' %}" rel="stylesheet">
-
-
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-
-    <style type="text/css">
-
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-    <!-- Page Content -->
-    <div class="container">
-      <h1 class="my-4 text-center text-lg-left">{{ portfolio.name }}</h1>
-
-        <!-- Projects Row -->
+{% block content %}
         <div class="row">
             {% for folio in folio.all %}
                 <div class="col-md-6 portfolio-item">
@@ -53,19 +14,6 @@
             {% endfor %}
             <hr>
         </div>
-
-
         <hr>
+{% endblock %}
 
-
-    </div>
-    <!-- /.container -->
-
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
-
-</body>
-
-</html>

@@ -11,7 +11,7 @@
 
     <title>{{ main.name}}</title>
     <!-- Google font size -->
-    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family={{ main.font_style}}" rel='stylesheet'>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
@@ -270,8 +270,8 @@
 
 
 .navigation_bar_font {
-    font-family: '{{ main.font_style_navigation_bar }}';
-    font-size: {{ main.font_size_navigation_bar }}px;
+    font-family: '{{ main.font_style}}';
+    font-size: {{ main.font_size }}px;
     color: {{ main.color_1 }};
     }
 
@@ -281,7 +281,7 @@
     }
 
 body {
-    font-family: '{{ main.font_style_navigation_bar }}';
+    font-family: '{{ main.font_style}}';
 
     }
 
