@@ -49,16 +49,16 @@ class Main(models.Model):
     font_size = models.IntegerField(default='22')
 
     use_side_bar_image = models.BooleanField(default=False)
-    side_bar_image = models.FileField('File', upload_to='./festival/userImages/')
+    side_bar_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
-    video_link = models.URLField()
+    video_link = models.URLField(blank=True)
 
     use_image_in_front_of_video = models.BooleanField(default=False)
-    image_in_front_of_video = models.FileField('File', upload_to='./festival/userImages/')
+    image_in_front_of_video = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     use_image_as_background = models.BooleanField(default=False)
     no_repeat_image = models.BooleanField(default=False)
-    background_image = models.FileField('File', upload_to='./festival/userImages/')
+    background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     show_instagram = models.BooleanField(default=False)
     https_instagram = models.CharField(max_length=999, default="#")
@@ -95,7 +95,7 @@ class Main(models.Model):
 
 class Page(models.Model):
     name = models.CharField(max_length=30)
-    to = models.ForeignKey(PageType)
+    to = models.ForeignKey(PageType, null=True, blank=True)
     main = models.ForeignKey(Main, on_delete=models.CASCADE)
 
     def __str__(self):
