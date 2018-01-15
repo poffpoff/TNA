@@ -33,7 +33,7 @@ def page(request, main_r, page_r):
     if (main):
         main = main[0]
         pages = models.Page.objects.filter(main=main)
-        page = pages.filter(name__iexact=page_r)
+        page = pages.filter(name__iexact=page_r.replace("_"," ").lower())
         if (page):
             page = page[0]
             if page.to:
@@ -53,6 +53,14 @@ def page(request, main_r, page_r):
                             'portfolio': page.to,
                         }
                         template = loader.get_template('festival/portfolio.html')
+                        return HttpResponse(template.render(context, request))
+                elif hasattr(page.to, 'accordion'):
+                        key = models.Key.objects.filter(accordion=page.to)
+                        context = {
+                            'key': key,
+                            'accordion': page.to,
+                        }
+                        template = loader.get_template('festival/accordion.html')
                         return HttpResponse(template.render(context, request))
                 else:
                     return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
