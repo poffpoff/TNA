@@ -1,6 +1,5 @@
 from django.db import models
 from colorfield.fields import ColorField
-from django.utils import timezone
 
 
 # Create your models here.
@@ -12,25 +11,19 @@ class PageType(models.Model):
         return str(self.name)
 
 
-class Calendar(PageType):
+class Portfolio(PageType):
+
     def __str__(self):
         return str(self.name)
 
 
 # class Folio du portefolio
-class Portfolio(PageType):
-    pageHeading = models.CharField(max_length=30, default="heading")
-    secondarytext = models.TextField(max_length=500, default='subtext')
-
-    def __str__(self):
-        return str(self.name)
-
-
 class Folio(models.Model):
     portFolio = models.ForeignKey(Portfolio, default=0)
     name = models.CharField(max_length=30, default="")
     image = models.FileField('File', upload_to='./festival/userImages/')
-    text = models.TextField(max_length=500, default='')
+    text = models.TextField(max_length=999, default='')
+    link = models.URLField(blank=True)
 
     # https = models.CharField(max_length=999, default="#")
 
