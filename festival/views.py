@@ -63,10 +63,10 @@ def page(request, main_r, page_r):
                         template = loader.get_template('festival/accordion.html')
                         return HttpResponse(template.render(context, request))
                 elif hasattr(page.to, 'googlemap'):
-                        marker = models.Marker.objects.filter(googleMap=page.to)
+                        map = models.GoogleMap.objects.filter(name=page.to.name)[0]
                         context = {
-                            'marker': marker,
-                            'map': page.to,
+                            'map': map,
+                            'map.src': map.src,
                         }
                         template = loader.get_template('festival/googleMap.html')
                         return HttpResponse(template.render(context, request))

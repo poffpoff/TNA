@@ -11,18 +11,7 @@ class PageType(models.Model):
         return str(self.name)
 
 class GoogleMap(PageType):
-    lat = models.DecimalField(decimal_places=3, max_digits=6, default=0.0)
-    long = models.DecimalField(decimal_places=3, max_digits=6, default=0.0)
-    def __str__(self):
-        return str(self.name)
-
-
-# class Folio du portefolio
-class Marker(models.Model):
-    googleMap = models.ForeignKey(GoogleMap, default=0)
-    name = models.CharField(max_length=30, default="")
-    lat = models.DecimalField(decimal_places=3, max_digits=6, default=0.0)
-    long = models.DecimalField(decimal_places=3, max_digits=6, default=0.0)
+    src = models.URLField(blank=True)
     def __str__(self):
         return str(self.name)
 
@@ -32,7 +21,6 @@ class Accordion(PageType):
         return str(self.name)
 
 
-# class Folio du portefolio
 class Key(models.Model):
     accordion = models.ForeignKey(Accordion, default=0)
     name = models.CharField(max_length=30, default="")
@@ -47,7 +35,6 @@ class ThumbnailGallery(PageType):
         return str(self.name)
 
 
-# class Folio du portefolio
 class Thumbnail(models.Model):
     thumbnailGallery = models.ForeignKey(ThumbnailGallery, default=0)
     name = models.CharField(max_length=30, default="")
