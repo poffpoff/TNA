@@ -32,7 +32,8 @@ def page(request, main_r, page_r):
     main = models.Main.objects.filter(name__iexact=main_r)
     if (main):
         main = main[0]
-        page = main.pages.filter(name__iexact=page_r)
+        pages = models.Page.objects.filter(main=main)
+        page = pages.filter(name__iexact=page_r)
         if (page):
             page = page[0]
             if page.to:
@@ -49,11 +50,10 @@ def page(request, main_r, page_r):
                     template = loader.get_template('festival/calendar.html')
                     return HttpResponse(template.render(context, request))
                 elif hasattr(page.to, 'portfolio'):
-                        portfolio = page.to.portfolio
-                        folio = models.Folio.objects.filter(portfolio=portfolio)
+                        folio = models.Folio.objects.filter(portFolio=page.to)
                         context = {
                             'folio': folio,
-                            'portfolio': portfolio,
+                            'portfolio': page.to,
                         }
                         template = loader.get_template('festival/portfolio.html')
                         return HttpResponse(template.render(context, request))
