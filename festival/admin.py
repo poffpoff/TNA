@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Main, Page, Card, Portfolio, Folio
+from .models import Main, Page, Card, Portfolio, Folio, ThumbnailGallery, Thumbnail
 
 class FolioInline(admin.TabularInline):
     model = Folio
@@ -23,6 +23,15 @@ class MainAdmin(admin.ModelAdmin):
         CardesInline
     ]
 
+class ThumbnailInline(admin.TabularInline):
+    model = Thumbnail
+
+class ThumbnailGalleryAdmin(admin.ModelAdmin):
+    inlines = [
+        ThumbnailInline,
+    ]
+
 admin.site.register(Main, MainAdmin)
 admin.site.register(Portfolio, PortfolioAdmin)
+admin.site.register(ThumbnailGallery, ThumbnailGalleryAdmin)
 

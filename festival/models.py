@@ -11,6 +11,23 @@ class PageType(models.Model):
         return str(self.name)
 
 
+class ThumbnailGallery(PageType):
+
+    def __str__(self):
+        return str(self.name)
+
+
+# class Folio du portefolio
+class Thumbnail(models.Model):
+    thumbnailGallery = models.ForeignKey(ThumbnailGallery, default=0)
+    name = models.CharField(max_length=30, default="")
+    image = models.FileField('File', upload_to='./festival/userImages/')
+    link = models.URLField(blank=True)
+
+
+    def __str__(self):
+        return str(self.name)
+
 class Portfolio(PageType):
 
     def __str__(self):
@@ -25,7 +42,6 @@ class Folio(models.Model):
     text = models.TextField(max_length=999, default='')
     link = models.URLField(blank=True)
 
-    # https = models.CharField(max_length=999, default="#")
 
     def __str__(self):
         return str(self.name)

@@ -37,17 +37,14 @@ def page(request, main_r, page_r):
         if (page):
             page = page[0]
             if page.to:
-                if hasattr(page.to, 'calendar'):
-                    calendar = page.to
-                    events = calendar.events
-                    dates = calendar.get_dates
+                if hasattr(page.to, 'thumbnailgallery'):
+                    thumbnail = models.Thumbnail.objects.filter(thumbnailGallery=page.to)
                     context = {
-                        'calendar': calendar,
-                        'events': events,
-                        'dates': dates,
+                        'thumbnailGallery': page.to,
+                        'thumbnail': thumbnail,
                     }
 
-                    template = loader.get_template('festival/calendar.html')
+                    template = loader.get_template('festival/ThumbnailGallery.html')
                     return HttpResponse(template.render(context, request))
                 elif hasattr(page.to, 'portfolio'):
                         folio = models.Folio.objects.filter(portFolio=page.to)
