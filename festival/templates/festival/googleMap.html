@@ -1,0 +1,94 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ main.name}}</title>
+    <!-- Google font size -->
+    <link href="https://fonts.googleapis.com/css?family={{ main.font_style_navigation_bar}}" rel='stylesheet'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+
+    <link href="{% static 'festival/css/googleMap.css' %}" rel="stylesheet">
+
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+
+    <style type="text/css">
+
+
+    </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-LGvDOpS6O8Z0gN4py69eCOGJWwD4trw&callback=initMap"> </script>
+</head>
+
+
+<body>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <h1 class="my-4 text-center ">{{ map.name }}</h1>
+
+      <div class="row ">
+<iframe src="https://www.google.com/maps/d/embed?mid=1BHklrnqic0UQhshgEg7bg6rrb6G2Q5Np" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>      </div>
+
+      </div>
+
+    <!-- /.container -->
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
+<!-- googlemap JavaScript -->
+
+
+  <script type="text/javascript">
+    var locations = [
+      {% for marker in marker.all %}
+      ['{{ marker.name }}', '{{ marker.lat }}', '{{ marker.long }}', '{{ marker.id }}'],
+      {% endfor %}
+
+
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng('{{ googleMap.name }}', '{{ googleMap.name }}'),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+
+</html>
+

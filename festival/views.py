@@ -62,6 +62,14 @@ def page(request, main_r, page_r):
                         }
                         template = loader.get_template('festival/accordion.html')
                         return HttpResponse(template.render(context, request))
+                elif hasattr(page.to, 'googlemap'):
+                        marker = models.Marker.objects.filter(googleMap=page.to)
+                        context = {
+                            'marker': marker,
+                            'map': page.to,
+                        }
+                        template = loader.get_template('festival/googleMap.html')
+                        return HttpResponse(template.render(context, request))
                 else:
                     return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
             else:
