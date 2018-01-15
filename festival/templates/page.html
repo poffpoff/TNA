@@ -8,9 +8,6 @@
 
     <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'festival/css/portfolio-bootstrap.css' %}" rel="stylesheet">
-
     <link href="{% static 'festival/css/page.css' %}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -31,10 +28,13 @@
 <body>
     <!-- Page Content -->
     <div class="container">
-     <h1 class="my-4 text-center text-lg-left">{{ title }}</h1>
-     <h1 class="my-4 text-center text-lg-left">{{ text }}</h1>
 
-            {% block content %}{% endblock %}
+        <div class="card h-100 header">
+         <h1 class="my-4 text-center text-lg-left">{{ title }}</h1>
+         <h1 class="my-4 text-center text-lg-left">{{ text }}</h1>
+        </div>
+
+        {% block content %}{% endblock %}
     </div>
     <!-- /.container -->
 
