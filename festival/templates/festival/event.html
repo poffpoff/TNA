@@ -404,12 +404,14 @@ body {
                              src=/static/festival/media/{{main.image_in_front_of_video }}>
                         {% endif %}
 
+                        {% if main.video_link %}
                         <div class="embed-responsive embed-responsive-4by3">
 
                             <iframe src={{main.video_link }}
                                     style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                                     allowTransparency="true" allowFullScreen="true"></iframe>
                         </div>
+                        {% endif %}
 
                     </div>
                 </div>
