@@ -51,10 +51,25 @@ body {
 
 #sidebar-wrapper {
     background: {{ main.color_2 }};
+     {% if main.use_image_as_side_bar_background %}
+        {% if main.background_side_bar_image %}
+            background-image: url("/static/festival/media/{{ main.background_side_bar_image }}") !important;
+        {% endif %}
+    {% endif %}
+
+    {% if main.no_repeat_side_bar_image %}
+        background-repeat: no-repeat;
+    {% endif %}
 }
 
 #sidebar-wrapper-footer {
     background: {{ main.color_2 }};
+     {% if main.use_image_as_side_bar_background %}
+        {% if main.background_side_bar_image %}
+            background-color: transparent;
+        {% endif %}
+    {% endif %}
+
 }
 
 

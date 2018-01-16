@@ -99,6 +99,10 @@ class Main(models.Model):
     no_repeat_image = models.BooleanField(default=False)
     background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
+    use_image_as_side_bar_background = models.BooleanField(default=False)
+    no_repeat_side_bar_image = models.BooleanField(default=False)
+    background_side_bar_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
+
     show_instagram = models.BooleanField(default=False)
     https_instagram = models.CharField(max_length=999, default="#")
 
