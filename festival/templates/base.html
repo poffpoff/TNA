@@ -10,10 +10,6 @@
 
     <link href="{% static 'festival/css/base.css' %}" rel="stylesheet">
 
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'festival/css/event.css' %}" rel="stylesheet">
-
     <!-- Custom fonts for this template -->
     <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
@@ -58,6 +54,9 @@
     }
 }
 
+#body {
+    background: {{ main.color_1 }};
+}
 
 #page-content-wrapper {
     width: 100%;
