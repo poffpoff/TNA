@@ -2,7 +2,7 @@
 
 {% block css %}
 
-@media only screen and (min-width: 40.063em) {
+
 
   .btn-circle {
     margin-top: 40%;
@@ -25,6 +25,15 @@
     outline: none;
     background: rgba(255, 255, 255, 0.1);
     }
+
+
+@media only screen and (max-width: 40.063em) {
+
+    .btn-circle {
+        display:none; }
+    .video {
+        display:none; }
+
 }
 
 {% endblock %}
@@ -54,11 +63,13 @@
                         </a>
 
                         {% if main.video_link %}
+                        <div class="video">
                         <div class="embed-responsive embed-responsive-4by3">
 
                             <iframe src={{main.video_link }}
                                     style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                                     allowTransparency="true" allowFullScreen="true"></iframe>
+                        </div>
                         </div>
                         {% endif %}
 
