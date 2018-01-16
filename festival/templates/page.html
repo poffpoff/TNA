@@ -14,8 +14,21 @@
 .text{
     color: {{ color_1 }};
     background: {{ color_2 }};
-    {% if transparent_text_background %}
+
+
+
+    {% if page.transparent_text_background %}
             background-color: transparent;
+    {% else %}
+         {% if page.use_image_as_text_background %}
+            {% if page.background_text_image %}
+                background-image: url("/static/festival/media/{{ page.background_text_image }}");
+            {% endif %}
+        {% endif %}
+
+        {% if page.no_repeat_text_image %}
+            background-repeat: no-repeat;
+        {% endif %}
     {% endif %}
  }
 {% endblock %}

@@ -10,12 +10,14 @@ class PageType(models.Model):
 
     transparent_text_background = models.BooleanField(default=False)
 
+    use_image_as_text_background = models.BooleanField(default=False)
+    no_repeat_text_image = models.BooleanField(default=False)
+    background_text_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     use_same_setting_as_main = models.BooleanField(default=True)
 
     color_1 = ColorField(default='#000000')
     color_2 = ColorField(default='#FFFFFF')
-    color_text = ColorField(default='#000000')
     color_highlight = ColorField(default='#FFFFFF')
 
     font_style = models.CharField(max_length=50, default='Crimson Text')
@@ -87,7 +89,6 @@ class Main(models.Model):
 
     color_1 = ColorField(default='#000000')
     color_2 = ColorField(default='#FFFFFF')
-    color_text = ColorField(default='#000000')
     color_highlight = ColorField(default='#FFFFFF')
 
     font_style = models.CharField(max_length=50, default='Crimson Text')

@@ -53,7 +53,7 @@ body {
     background: {{ main.color_2 }};
      {% if main.use_image_as_side_bar_background %}
         {% if main.background_side_bar_image %}
-            background-image: url("/static/festival/media/{{ main.background_side_bar_image }}") !important;
+            background-image: url("/static/festival/media/{{ main.background_side_bar_image }}");
         {% endif %}
     {% endif %}
 
