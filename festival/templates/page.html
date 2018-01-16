@@ -7,8 +7,17 @@
   margin-bottom: 30px;
 }
 
+.title{
+    color: {{ color_2 }};
+ }
+
+.text{
+    color: {{ color_1 }};
+    background: {{ color_2 }};
+ }
 {% endblock %}
 
+{% block page-css %}{% endblock %}
 
 {% block content-wrapper %}
     <div class="col ">
@@ -24,12 +33,12 @@
 
         </a>
     </div>
-<div class="header">
+    <div class="header title">
         <h1 class="my-4 text-center text-lg">{{ title }}</h1>
-        </div>
-        <div class="card header">
-         <h1 class="my-4 text-center text-sm-left">{{ text }}</h1>
-        </div>
+    </div>
+    <div class="card header text">
+         <h1 class="my-4 text-center text-sm-left">{{ text|safe }}</h1>
+    </div>
         {% block content %}{% endblock %}
 
 {% endblock %}
