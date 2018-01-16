@@ -14,12 +14,23 @@ def main(request, main_r):
         pages = models.Page.objects.filter(main = main)
         cards = models.Card.objects.filter(main = main)
         videoLink = main.video_link
-
+        font_style = main.font_style
+        font_size = main.font_size
+        color_1 = main.color_1
+        color_2 = main.color_2
+        color_text = main.color_text
+        color_highlight = main.color_highlight
         context = {
             'main': main,
             'pages': pages,
             'cards': cards,
             'videoLink': videoLink,
+            'font_style': font_style,
+            'font_size': font_size,
+            'color_1': color_1,
+            'color_2': color_2,
+            'color_text': color_text,
+            'color_highlight': color_highlight,
         }
 
         template = loader.get_template('festival/event.html')

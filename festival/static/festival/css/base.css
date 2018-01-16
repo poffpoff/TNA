@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Center align the text within the three columns below the carousel */
+
 .col-lg-6 {
   margin-bottom: .5rem;
   margin-top: .5rem;
@@ -26,97 +26,10 @@ body {
 }
 
 
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
 
-#wrapper.toggled {
-    padding-left: 250px;
-}
+    /* effect when loadind page for menu button and circle button*/
 
-
-
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
-#wrapper.toggled #sidebar-wrapper-footer {
-    width: 250px;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
-}
-
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-}
-
-.btn-secondary {
-    position: absolute;
-
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-  text-align: center;
-    margin-top: 20px;
-    height: 100%;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
-}
-
-       .fadeIn {
+.fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
   -webkit-animation-duration: 1s;
@@ -134,11 +47,8 @@ body {
   }
 
 
-#sidebar-wrapper-footer {
-text-align:center;
-}
 
-       .fadeInUpBig {
+.fadeInUpBig {
   -webkit-animation-name: fadeInUpBig;
   animation-name: fadeInUpBig;
   -webkit-animation-duration: 1s;
@@ -172,31 +82,142 @@ text-align:center;
   }
 
 @media only screen and (min-width: 40.063em) { /* min-width 641px, medium screens */
-    #wrapper {
+
+     #wrapper {
         padding-left: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
     }
+
+     #page-content-wrapper {
+        padding: 20px;
+    }
+
+    #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 0;
+        height: 100%;
+        margin-left: -250px;
+        overflow-y: auto;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    #sidebar-wrapper-footer {
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        bottom:0px;
+        width: 0;
+        height: 10%;
+        margin-left: -250px;
+        text-align:center;
+        overflow-y: auto;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    /* toggled*/
+
     #wrapper.toggled {
         padding-left: 250px;
     }
-    #sidebar-wrapper {
-        width: 0;
+
+     #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
     }
-    #sidebar-wrapper-footer {
-        width: 0;
-    }
+
     #wrapper.toggled #sidebar-wrapper {
         width: 250px;
     }
     #wrapper.toggled #sidebar-wrapper-footer {
         width: 250px;
     }
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
     }
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
+    #wrapper.toggled #sidebar-wrapper-footer {
+        width: 250px;
+    }
+
+    /* Sidebar Styles */
+
+    .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+    }
+
+    .sidebar-nav li {
+        text-indent: 20px;
+        line-height: 40px;
+    }
+
+    .sidebar-nav li a {
+        display: block;
+        text-decoration: none;
+        color: #999999;
+    }
+
+    .sidebar-nav li a:hover {
+        text-decoration: none;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+
+    .sidebar-nav li a:active,
+    .sidebar-nav li a:focus {
+        text-decoration: none;
+    }
+
+    .sidebar-nav > .sidebar-brand {
+      text-align: center;
+        margin-top: 20px;
+        height: 100%;
+        font-size: 18px;
+        line-height: 60px;
+    }
+
+    .sidebar-nav > .sidebar-brand a {
+        color: #999999;
+    }
+
+    .sidebar-nav > .sidebar-brand a:hover {
+        color: #fff;
+        background: none;
+    }
+
+    /* button menu */
+
+    .menu-btn {
+        position: absolute;
+        z-index: 1000;
+        margin: 20px;
+    }
+
+    .menu-btn-2 {
+        top:24px;
+        position: absolute;
+        z-index: 1000;
+        margin: 20px;
+        transform: scaleY(-1);
+        transform: scaleY(-1);
+
     }
 }
 

@@ -1,24 +1,35 @@
 {% extends "base.html" %}
 
+
+{% block css %}
+
+.header{
+  margin-bottom: 30px;
+}
+
+{% endblock %}
+
+
 {% block content-wrapper %}
-                        <a id="menu-toggle" href="#">
-                            <div class="   menu-btn fadeIn">
-                                ▼ MENU *
+    <div class="col ">
+        <a id="menu-toggle" href="#">
+            <div class="   menu-btn ">
+                ▼ MENU *
 
-                            </div>
-                            <div class="  menu-btn-2 fadeIn">
-                                ▼ MENU *
+            </div>
+            <div class="  menu-btn-2 ">
+                ▼ MENU *
 
-                            </div>
+            </div>
 
-                        </a>
-        <div class="header">
+        </a>
+    </div>
+<div class="header">
         <h1 class="my-4 text-center text-lg">{{ title }}</h1>
         </div>
         <div class="card header">
          <h1 class="my-4 text-center text-sm-left">{{ text }}</h1>
         </div>
-
         {% block content %}{% endblock %}
 
 {% endblock %}
