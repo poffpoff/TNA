@@ -1,69 +1,24 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
 
-    <!-- Google font size -->
-    <link href="https://fonts.googleapis.com/css?family={{ font_style }}" rel='stylesheet'>
+{% block content-wrapper %}
+                        <a id="menu-toggle" href="#">
+                            <div class="   menu-btn fadeIn">
+                                ▼ MENU *
 
-    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+                            </div>
+                            <div class="  menu-btn-2 fadeIn">
+                                ▼ MENU *
 
-    <link href="{% static 'festival/css/page.css' %}" rel="stylesheet">
+                            </div>
 
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-    <title> {{ title }}</title>
-
-    <style type="text/css">
-    .container {
-    font-family: '{{ font_style }}';
-    font-size: {{ font_size }}px;
-    color: {{ color_text }};
-    background : {{ color_2 }};
-    }
-
-    .container a:hover {
-    color: {{ color_highlight }};
-    }
-
-    .container a:{
-    color: {{ color_text }};
-    }
-
-    body {
-    background : {{ color_1 }};
-    }
-    </style>
-
-
-    <style type="text/css">
-
-     {% block css %}{% endblock %}
-
-    </style>
-
-</head>
-
-<body>
-    <!-- Page Content -->
-    <div class="container">
-
+                        </a>
         <div class="header">
-        <h1 class="my-4 text-center text-lg-left">{{ title }}</h1>
+        <h1 class="my-4 text-center text-lg">{{ title }}</h1>
         </div>
         <div class="card header">
-         <h1 class="my-4 text-center text-lg-left">{{ text }}</h1>
+         <h1 class="my-4 text-center text-sm-left">{{ text }}</h1>
         </div>
 
         {% block content %}{% endblock %}
-    </div>
-    <!-- /.container -->
 
-
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
-<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
-</body>
-</html>
+{% endblock %}

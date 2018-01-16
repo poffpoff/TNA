@@ -39,6 +39,7 @@ def page(request, main_r, page_r):
             if page.to:
                 title = page.to.name
                 text = page.to.text
+                pages = models.Page.objects.filter(main = main)
                 if (page.to.use_same_setting_as_main):
                     font_style = main.font_style
                     font_size = main.font_size
@@ -56,6 +57,8 @@ def page(request, main_r, page_r):
                 if hasattr(page.to, 'thumbnailgallery'):
                     thumbnail = models.Thumbnail.objects.filter(thumbnailGallery=page.to)
                     context = {
+                        'main': main,
+                        'pages': pages,
                         'title': title,
                         'text': text,
                         'font_style' : font_style,
@@ -73,6 +76,8 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'portfolio'):
                         folio = models.Folio.objects.filter(portFolio=page.to)
                         context = {
+                            'main': main,
+                            'pages': pages,
                             'title': title,
                             'text': text,
                             'font_style' : font_style,
@@ -89,6 +94,8 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'accordion'):
                         key = models.Key.objects.filter(accordion=page.to)
                         context = {
+                            'main': main,
+                            'pages': pages,
                             'title': title,
                             'text': text,
                             'font_style' : font_style,
@@ -105,6 +112,8 @@ def page(request, main_r, page_r):
                 elif hasattr(page.to, 'googlemap'):
                         map = models.GoogleMap.objects.filter(name=page.to.name)[0]
                         context = {
+                            'main': main,
+                            'pages': pages,
                             'title': title,
                             'text': text,
                             'font_style' : font_style,

@@ -1,0 +1,404 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google font size -->
+    <link href="https://fonts.googleapis.com/css?family={{ font_style }}" rel='stylesheet'>
+
+    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+    <link href="{% static 'festival/css/base.css' %}" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'festival/css/event.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'festival/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+
+    <title> {{ title }}</title>
+
+    <style type="text/css">
+
+@media only screen and (min-width: 40.063em) {
+   .use_image_in_front_of_video{
+   margin-top: 20%;
+   left:25%;
+   position:absolute;
+   font-size: 26px;
+   z-index: 50;
+  background: transparent; }
+
+  .btn-circle {
+   margin-top: 45%;
+   left:48%;
+   position:absolute;
+   font-size: 26px;
+   z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+
+  border-color: {{ main.color_2 }}!important;
+  color: {{ main.color_2 }};
+  border: 2px solid white;
+  border-radius: 100% !important;
+  background: transparent; }
+
+  .btn-circle:focus, .btn-circle:hover {
+    border-color: {{ main.color_highlight }}!important;
+    color: {{ main.color_highlight }};
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar {
+        display:none; }
+    }
+}
+
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    background: {{ main.color_1 }};
+    {% if main.use_image_as_background %}
+        {% if main.background_image %}
+            background-image: url("/static/festival/media/{{ main.background_image }}");
+        {% endif %}
+    {% endif %}
+
+    {% if main.no_repeat_image %}
+        background-repeat: no-repeat;
+    {% endif %}
+
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: {{ main.color_2 }};
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#sidebar-wrapper-footer {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    bottom:0px;
+    width: 0;
+    height: 10%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: {{ main.color_2 }};
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+
+
+
+.instagram a{
+  {% if main.use_official_color_for_icons %}
+      display: inline-block;
+      text-align: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 6px;
+      color: {{ main.color_2}};
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+   {% else %}
+      color: {{ main.color_1}};
+  {% endif %}
+
+}
+
+.instagram a:hover {
+
+  {% if main.use_official_color_for_icons %}
+
+      display: inline-block;
+      text-align: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 6px;
+      color: {{ main.color_2}};
+      background: {{ main.color_highlight }};;
+   {% else %}
+         color: {{ main.color_highlight}};
+   {% endif %}
+    text-decoration: none;
+
+}
+
+.facebook a{
+    padding:5px;
+    {% if main.use_official_color_for_icons %}
+         color: blue;
+    {% else %}
+      color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.facebook a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }};
+    text-decoration: none;
+    }
+
+.twitter a{
+    padding:5px;
+
+      {% if main.use_official_color_for_icons %}
+         color: rgb(0, 172, 237);
+       {% else %}
+         color: {{ main.color_1}};
+    {% endif %}:
+}
+
+.twitter a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }};
+    text-decoration: none;
+
+    }
+
+
+.youtube a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color: #cc181e ;
+     {% else %}
+        color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.youtube a:hover{
+    padding:5px;
+
+    color:{{ main.color_highlight }};
+        text-decoration: none;
+
+    }
+
+
+.contact-us a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color:grey;
+      {% else %}
+        color: {{ main.color_1}};
+    {% endif %}
+    }
+
+.contact-us a:hover{
+    padding:5px;
+
+    color: {{ main.color_highlight }} ;
+    text-decoration: none;
+
+    }
+
+.snapchat a{
+    padding:5px;
+
+     {% if main.use_official_color_for_icons %}
+         color:rgb(255, 252, 0);
+      {% else %}
+         color: {{ main.color_1}};
+    {% endif %}
+
+    }
+
+.snapchat a:hover{
+    padding:5px;
+
+    color:{{ main.color_highlight }};
+    text-decoration: none;
+    }
+
+.menu-btn {
+    position: absolute;
+    z-index: 1000;
+    margin: 20px;
+    color: {{ main.color_1 }};
+    background: {{ main.color_2 }};
+
+}
+
+.menu-btn:hover {
+    color: {{ main.color_highlight }};
+
+}
+
+.menu-btn-2 {
+    top:24px;
+    position: absolute;
+    z-index: 1000;
+    margin: 20px;
+    transform: scaleY(-1);
+    transform: scaleY(-1);
+    color: {{ main.color_2 }};
+    background: {{ main.color_1 }};
+
+}
+
+.menu-btn-2:hover {
+    color: {{ main.color_highlight }};
+}
+
+
+
+.navigation_bar_font {
+    font-family: '{{ main.font_style}}';
+    font-size: {{ main.font_size }}px;
+    color: {{ main.color_1 }};
+    }
+
+.navigation_bar_font:hover {
+
+    color: {{ main.color_highlight }};
+    }
+
+body {
+    font-family: '{{ main.font_style}}';
+
+    }
+
+
+    </style>
+
+
+    <style type="text/css">
+
+     {% block css %}{% endblock %}
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="navigation_bar_background">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <div class="sidebar-brand">
+                    <a href={{ '/'|add:main.name}}>
+                        <span class="fa solo">
+                            <div class="navigation_bar_font">
+                            {% if main.use_side_bar_image %}
+                            <img src=/static/festival/media/{{ main.side_bar_image }}>
+                            {% else %}
+                                    {{ main.name }}
+                            {% endif %}
+                              </div>
+                        </span>
+                    </a>
+                </div>
+                {% for page in pages.all %}
+                <li>
+
+                    <a href={{ '/'|add:main.name|add:'/'|add:page.normalizedName }} >
+                            <span class="fa  solo">
+                                                        <div class="navigation_bar_font">
+
+                                {{ page.name }}
+                                                                                    </div>
+
+                            </span>
+
+                    </a>
+                </li>
+                {% endfor %}
+
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar-wrapper-footer">
+
+            {% if main.show_instagram %}
+            <span class="instagram" class="fa fa-instagram fa-2x">
+                <a target="_blank" href={{ main.https_instagram }} class="fa fa-instagram fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_facebook %}
+            <span class="facebook">
+                <a target="_blank" href={{ main.https_facebook }} class="fa fa-facebook-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_twitter %}
+            <span class="twitter">
+                <a target="_blank" href={{ main.https_twitter }} class="fa fa-twitter-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_snapchat %}
+            <span class="snapchat">
+                <a target="_blank" href={{ main.https_snapchat }} class="fa fa-snapchat-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_youtube %}
+            <span class="youtube">
+                <a target="_blank" href={{ main.https_youtube }} class="fa fa-youtube-square fa-2x"></a>
+            </span>
+            {% endif %}
+
+            {% if main.show_contact_us %}
+            <span class="contact-us">
+                <a target="_blank" href={{ main.https_contact_us }} class="fa fa-envelope-o fa-2x"></a>
+            </span>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        {% block content-wrapper %}{% endblock %}
+      </div>
+    </div>
+
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
+<!-- make the page go down smoothly -->
+<script type="text/javascript" src="{% static 'festival/js/smoothHref.js' %}"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+</body>
+</html>
