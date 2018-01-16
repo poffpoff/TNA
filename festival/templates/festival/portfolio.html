@@ -1,6 +1,19 @@
 {% extends "page.html" %}
 
 
+
+
+{% block css %}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+{% endblock %}
+
+
+
+
 {% block content %}
         <div class="row">
             {% for folio in folio.all %}
