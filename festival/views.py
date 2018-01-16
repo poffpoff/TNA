@@ -15,7 +15,6 @@ def main(request, main_r):
         cards = models.Card.objects.filter(main = main)
         videoLink = main.video_link
         font_style = main.font_style
-        font_size = main.font_size
         color_1 = main.color_1
         color_2 = main.color_2
         color_highlight = main.color_highlight
@@ -25,7 +24,6 @@ def main(request, main_r):
             'cards': cards,
             'videoLink': videoLink,
             'font_style': font_style,
-            'font_size': font_size,
             'color_1': color_1,
             'color_2': color_2,
             'color_highlight': color_highlight,
@@ -52,13 +50,11 @@ def page(request, main_r, page_r):
                 pages = models.Page.objects.filter(main = main)
                 if (page.use_same_setting_as_main):
                     font_style = main.font_style
-                    font_size = main.font_size
                     color_1 = main.color_1
                     color_2 = main.color_2
                     color_highlight = main.color_highlight
                 else:
                     font_style = page.font_style
-                    font_size = page.font_size
                     color_1 = page.color_1
                     color_2 = page.color_2
                     color_highlight = page.color_highlight
@@ -71,7 +67,6 @@ def page(request, main_r, page_r):
                         'title': title,
                         'text': text,
                         'font_style' : font_style,
-                        'font_size' : font_size,
                         'color_1' : color_1,
                         'color_2' : color_2,
                         'color_highlight' : color_highlight,
@@ -90,7 +85,6 @@ def page(request, main_r, page_r):
                             'title': title,
                             'text': text,
                             'font_style' : font_style,
-                            'font_size' : font_size,
                             'color_1' : color_1,
                             'color_2' : color_2,
                             'color_highlight' : color_highlight,
@@ -108,7 +102,6 @@ def page(request, main_r, page_r):
                             'title': title,
                             'text': text,
                             'font_style' : font_style,
-                            'font_size' : font_size,
                             'color_1' : color_1,
                             'color_2' : color_2,
                             'color_highlight' : color_highlight,
@@ -126,7 +119,6 @@ def page(request, main_r, page_r):
                             'title': title,
                             'text': text,
                             'font_style' : font_style,
-                            'font_size' : font_size,
                             'color_1' : color_1,
                             'color_2' : color_2,
                             'color_highlight' : color_highlight,

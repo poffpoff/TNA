@@ -6,7 +6,8 @@ from colorfield.fields import ColorField
 
 class PageType(models.Model):
     name = models.CharField(max_length=30)
-    text = models.TextField(max_length=999, default='')
+    text = models.TextField(max_length=999,blank=True)
+    font_size = models.IntegerField(default='16')
 
     transparent_text_background = models.BooleanField(default=False)
 
@@ -21,7 +22,6 @@ class PageType(models.Model):
     color_highlight = ColorField(default='#FFFFFF')
 
     font_style = models.CharField(max_length=50, default='Crimson Text')
-    font_size = models.IntegerField(default='22')
 
     use_image_as_background = models.BooleanField(default=False)
     no_repeat_image = models.BooleanField(default=False)
@@ -43,8 +43,8 @@ class Accordion(PageType):
 
 class Key(models.Model):
     accordion = models.ForeignKey(Accordion, default=0)
-    name = models.CharField(max_length=30, default="")
-    text = models.TextField(max_length=999, default='')
+    name = models.CharField(max_length=30, default="", blank=True)
+    text = models.TextField(max_length=999, default='', blank=True)
 
     def __str__(self):
         return str(self.name)

@@ -93,6 +93,12 @@ body {
 
      #page-content-wrapper {
         padding: 20px;
+        overflow-y: auto;
+        height: 100%;
+        position: relative;
+
+
+
     }
 
     #sidebar-wrapper {

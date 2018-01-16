@@ -23,20 +23,16 @@
 
     .navbar {
         display:none; }
-    }
-}
-
-#body {
-        background: {{ main.color_1 }};
 
 }
+
+
+
 
 body {
     font-family: '{{ font_style}}';
-    }
-
-#page-content-wrapper {
     background: {{ color_1 }};
+
     {% if main.use_image_as_background %}
         {% if main.background_image %}
             background-image: url("/static/festival/media/{{ main.background_image }}");
@@ -47,7 +43,7 @@ body {
         background-repeat: no-repeat;
     {% endif %}
 
-}
+    }
 
 #sidebar-wrapper {
     background: {{ main.color_2 }};
