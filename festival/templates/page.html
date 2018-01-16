@@ -19,7 +19,20 @@
     .container {
     font-family: '{{ font_style }}';
     font-size: {{ font_size }}px;
-    color: {{ color_1 }};
+    color: {{ color_text }};
+    background : {{ color_2 }};
+    }
+
+    .container a:hover {
+    color: {{ color_highlight }};
+    }
+
+    .container a:{
+    color: {{ color_text }};
+    }
+
+    body {
+    background : {{ color_1 }};
     }
     </style>
 

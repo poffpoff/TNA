@@ -12,6 +12,7 @@ class PageType(models.Model):
 
     color_1 = ColorField(default='#000000')
     color_2 = ColorField(default='#FFFFFF')
+    color_text = ColorField(default='#000000')
     color_highlight = ColorField(default='#FFFFFF')
 
     font_style = models.CharField(max_length=50, default='Crimson Text')
@@ -83,6 +84,7 @@ class Main(models.Model):
 
     color_1 = ColorField(default='#000000')
     color_2 = ColorField(default='#FFFFFF')
+    color_text = ColorField(default='#000000')
     color_highlight = ColorField(default='#FFFFFF')
 
     font_style = models.CharField(max_length=50, default='Crimson Text')
