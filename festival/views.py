@@ -51,6 +51,7 @@ def page(request, main_r, page_r):
                 title = page.to.name
                 text = page.to.text
                 pages = models.Page.objects.filter(main = main)
+                transparent_text_background = page.to.transparent_text_background
                 if (page.to.use_same_setting_as_main):
                     font_style = main.font_style
                     font_size = main.font_size
@@ -78,6 +79,7 @@ def page(request, main_r, page_r):
                         'color_2' : color_2,
                         'color_text' : color_text,
                         'color_highlight' : color_highlight,
+                        'transparent_text_background' : transparent_text_background,
                         'thumbnailGallery': page.to,
                         'thumbnail': thumbnail,
                     }
@@ -97,6 +99,7 @@ def page(request, main_r, page_r):
                             'color_2' : color_2,
                             'color_highlight' : color_highlight,
                             'color_text' : color_text,
+                            'transparent_text_background' : transparent_text_background,
                             'folio': folio,
                             'portfolio': page.to,
                         }
@@ -115,6 +118,7 @@ def page(request, main_r, page_r):
                             'color_2' : color_2,
                             'color_text' : color_text,
                             'color_highlight' : color_highlight,
+                            'transparent_text_background' : transparent_text_background,
                             'key': key,
                             'accordion': page.to,
                         }
@@ -133,6 +137,7 @@ def page(request, main_r, page_r):
                             'color_2' : color_2,
                             'color_text' : color_text,
                             'color_highlight' : color_highlight,
+                            'transparent_text_background' : transparent_text_background,
                             'map': map,
                             'map.src': map.src,
                         }

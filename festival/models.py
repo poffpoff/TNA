@@ -8,6 +8,9 @@ class PageType(models.Model):
     name = models.CharField(max_length=30)
     text = models.TextField(max_length=999, default='')
 
+    transparent_text_background = models.BooleanField(default=False)
+
+
     use_same_setting_as_main = models.BooleanField(default=True)
 
     color_1 = ColorField(default='#000000')
