@@ -24,7 +24,7 @@ class PageType(models.Model):
     font_style = models.CharField(max_length=50, default='Crimson Text')
 
     use_image_as_background = models.BooleanField(default=False)
-    no_repeat_image = models.BooleanField(default=False)
+    no_repeat_image = models.BooleanField(default=True)
     background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     def __str__(self):
@@ -100,7 +100,7 @@ class Main(models.Model):
     video_link = models.URLField(blank=True)
 
     use_image_as_background = models.BooleanField(default=False)
-    no_repeat_image = models.BooleanField(default=False)
+    no_repeat_image = models.BooleanField(default=True)
     background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
     use_image_as_side_bar_background = models.BooleanField(default=False)
@@ -169,3 +169,20 @@ class Card(models.Model):
 
     fileLink.allow_tags = True
     fileLink.short_description = "File Link"
+
+
+class FirstPage(models.Model):
+    title = models.CharField(max_length=30)
+    font_style = models.CharField(max_length=50, default='Crimson Text')
+    font_size = models.IntegerField(default='22')
+    color_1 = ColorField(default='#000000')
+    color_2 = ColorField(default='#FFFFFF')
+    use_image_as_background = models.BooleanField(default=False)
+    no_repeat_image = models.BooleanField(default=True)
+    background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
+
+class Index(models.Model):
+    name = models.CharField(max_length=30)
+    to = models.ForeignKey(Main, null=True, blank=True)
+    image = models.FileField('File', upload_to='./festival/userImages/')
+    firstPage = models.ForeignKey(FirstPage, default=0, on_delete=models.CASCADE)

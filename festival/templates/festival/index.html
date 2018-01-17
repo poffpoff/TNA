@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family={{ font_style }}" rel='stylesheet'>
+
+    <link href="{% static 'festival/css/bootstrap.css' %}" rel="stylesheet">
+
+    <link href="{% static 'festival/css/index.css' %}" rel="stylesheet">
+
+    <title> {{ title }}</title>
+
+
+    <style type="text/css">
+
+
+        body {
+        font-family: '{{ font_style}}';
+        background: {{ color_1 }};
+
+        {% if firstPage.use_image_as_background %}
+            {% if firstPage.background_image %}
+                background-image: url("/static/festival/media/{{ firstPage.background_image }}");
+            {% endif %}
+        {% endif %}
+
+        {% if firstPage.no_repeat_image %}
+            background-repeat: no-repeat;
+        {% endif %}
+
+        }
+
+     .text {
+        color:{{ color_2 }};
+        font-size:50px;
+        text-align: center;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="text">
+        {{firstPage.title}}
+    </div>
+  </div>
+  <div class="row">
+    {% for index in indexes.all %}
+                    <div class="card h-100">
+      <a id="link" href={{ index.to.name|add:'/' }}>
+	    <img src=/static/festival/media/{{ index.image }} alt={{ index.name }} class="img-rounded">
+      </a>                <div class="card-body">
+                  <h4 class="card-title text-left">
+                    {{index.name}}
+                  </h4>
+                </div>
+              </div>
+
+
+      {% endfor %}
+  </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'festival/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'festival/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

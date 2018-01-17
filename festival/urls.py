@@ -17,6 +17,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^(?P<main_r>[a-zA-Z0-9_]*)/$', views.main, name='index'),
-    url(r'^(?P<main_r>[a-zA-Z0-9_]*)/(?P<page_r>[a-zA-Z0-9_]*)/$', views.page, name='index'),
+    url(r'^(?P<main_r>[a-zA-Z0-9_]*)/(?P<page_r>[a-zA-Z0-9_]*)/$', views.page, name='page'),
+    url(r'^(?P<main_r>[a-zA-Z0-9_]*)/$', views.main, name='main'),
+    url(r'^', views.index, name='index'),
 ]
+

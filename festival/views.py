@@ -5,6 +5,27 @@ from festival import models
 
 # Create your views here.
 
+def index(request):
+    firstPage = models.FirstPage.objects.all()[0]
+    if (firstPage):
+        indexes = models.Index.objects.filter(firstPage = firstPage)
+        title = "Track'n'Art"
+        font_style = firstPage.font_style
+        color_1 = firstPage.color_1
+        color_2 = firstPage.color_2
+        context = {
+            'firstPage': firstPage,
+            'indexes': indexes,
+            'title': title,
+            'font_style': font_style,
+            'color_1': color_1,
+            'color_2': color_2,
+        }
+
+        template = loader.get_template('festival/index.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponseNotFound("no index")
 
 
 def main(request, main_r):
@@ -18,6 +39,7 @@ def main(request, main_r):
         color_1 = main.color_1
         color_2 = main.color_2
         color_highlight = main.color_highlight
+        title = main.name
         context = {
             'main': main,
             'pages': pages,
@@ -27,6 +49,7 @@ def main(request, main_r):
             'color_1': color_1,
             'color_2': color_2,
             'color_highlight': color_highlight,
+            'title': title,
         }
 
         template = loader.get_template('festival/event.html')
