@@ -5,7 +5,7 @@ from colorfield.fields import ColorField
 # Create your models here.
 
 class PageType(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=99)
     text = models.TextField(max_length=999,blank=True)
     font_size = models.IntegerField(default='16')
 
@@ -21,7 +21,7 @@ class PageType(models.Model):
     color_2 = ColorField(default='#FFFFFF')
     color_highlight = ColorField(default='#FFFFFF')
 
-    font_style = models.CharField(max_length=50, default='Crimson Text')
+    font_style = models.CharField(max_length=99, default='Crimson Text')
 
     use_image_as_background = models.BooleanField(default=False)
     no_repeat_image = models.BooleanField(default=True)
@@ -43,7 +43,7 @@ class Accordion(PageType):
 
 class Key(models.Model):
     accordion = models.ForeignKey(Accordion, blank=True)
-    name = models.CharField(max_length=30, default="", blank=True)
+    name = models.CharField(max_length=99, default="", blank=True)
     text = models.TextField(max_length=999, default='', blank=True)
 
     def __str__(self):
@@ -57,7 +57,7 @@ class ThumbnailGallery(PageType):
 
 class Thumbnail(models.Model):
     thumbnailGallery = models.ForeignKey(ThumbnailGallery, blank=True)
-    name = models.CharField(max_length=30, default="")
+    name = models.CharField(max_length=99, default="")
     image = models.FileField('File', upload_to='./festival/userImages/')
     link = models.URLField(blank=True)
 
@@ -74,7 +74,7 @@ class Portfolio(PageType):
 # class Folio du portefolio
 class Folio(models.Model):
     portFolio = models.ForeignKey(Portfolio, blank=True)
-    name = models.CharField(max_length=30, default="")
+    name = models.CharField(max_length=99, default="")
     image = models.FileField('File', upload_to='./festival/userImages/')
     text = models.TextField(max_length=999, default='')
     link = models.URLField(blank=True)
@@ -85,7 +85,7 @@ class Folio(models.Model):
 
 
 class Main(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=99)
 
     color_1 = ColorField(default='#000000')
     color_2 = ColorField(default='#FFFFFF')
@@ -141,7 +141,7 @@ class Main(models.Model):
 
 
 class Page(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=99)
     to = models.ForeignKey(PageType, null=True, blank=True)
     main = models.ForeignKey(Main, on_delete=models.CASCADE)
 
@@ -153,7 +153,7 @@ class Page(models.Model):
 
 
 class Card(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=99)
     image = models.FileField('File', upload_to='./festival/userImages/')
     https = models.CharField(max_length=999, default="#")
     main = models.ForeignKey(Main, blank=True, on_delete=models.CASCADE)
@@ -172,7 +172,7 @@ class Card(models.Model):
 
 
 class FirstPage(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=99)
     font_style = models.CharField(max_length=50, default='Crimson Text')
     font_size = models.IntegerField(default='22')
     color_1 = ColorField(default='#000000')
@@ -182,7 +182,7 @@ class FirstPage(models.Model):
     background_image = models.FileField('File', upload_to='./festival/userImages/', blank=True)
 
 class Index(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=99)
     to = models.ForeignKey(Main, null=True, blank=True)
     image = models.FileField('File', upload_to='./festival/userImages/')
     firstPage = models.ForeignKey(FirstPage, blank=True, on_delete=models.CASCADE)

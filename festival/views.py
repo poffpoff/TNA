@@ -10,7 +10,7 @@ def index(request):
     if (firstPage):
         firstPage = firstPage[0]
         indexes = models.Index.objects.filter(firstPage = firstPage)
-        title = "Track'n'Art"
+        title = firstPage.title
         font_style = firstPage.font_style
         color_1 = firstPage.color_1
         color_2 = firstPage.color_2
