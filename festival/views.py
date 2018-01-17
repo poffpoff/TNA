@@ -26,7 +26,7 @@ def index(request):
         template = loader.get_template('festival/index.html')
         return HttpResponse(template.render(context, request))
     else:
-        return HttpResponseNotFound("no index")
+        raise Http404("Index does not exist")
 
 
 def main(request, main_r):
@@ -56,7 +56,7 @@ def main(request, main_r):
         template = loader.get_template('festival/event.html')
         return HttpResponse(template.render(context, request))
     else:
-        return HttpResponseNotFound(main_r + " does not exist")
+        raise Http404(main_r + " does not exist")
 
 
 def page(request, main_r, page_r):
@@ -152,10 +152,10 @@ def page(request, main_r, page_r):
                         template = loader.get_template('festival/googleMap.html')
                         return HttpResponse(template.render(context, request))
                 else:
-                    return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
+                    raise Http404(main_r + "/" + page_r + " does not exist")
             else:
-                return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
+                raise Http404(main_r + "/" + page_r + " does not exist")
         else:
-            return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
+            raise Http404(main_r + "/" + page_r + " does not exist")
     else:
-        return HttpResponseNotFound(main_r + "/" + page_r + " does not exist")
+        raise Http404(main_r + "/" + page_r + " does not exist")
