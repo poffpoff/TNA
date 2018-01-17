@@ -1,13 +1,14 @@
 from django.http import HttpResponse, Http404, HttpResponseNotFound
-from django.template import Context, loader
+from django.template import loader
 from festival import models
 
 
 # Create your views here.
 
 def index(request):
-    firstPage = models.FirstPage.objects.all()[0]
+    firstPage = models.FirstPage.objects.all()
     if (firstPage):
+        firstPage = firstPage[0]
         indexes = models.Index.objects.filter(firstPage = firstPage)
         title = "Track'n'Art"
         font_style = firstPage.font_style
