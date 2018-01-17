@@ -42,7 +42,7 @@ class Accordion(PageType):
 
 
 class Key(models.Model):
-    accordion = models.ForeignKey(Accordion, default=0)
+    accordion = models.ForeignKey(Accordion, blank=True)
     name = models.CharField(max_length=30, default="", blank=True)
     text = models.TextField(max_length=999, default='', blank=True)
 
@@ -56,7 +56,7 @@ class ThumbnailGallery(PageType):
 
 
 class Thumbnail(models.Model):
-    thumbnailGallery = models.ForeignKey(ThumbnailGallery, default=0)
+    thumbnailGallery = models.ForeignKey(ThumbnailGallery, blank=True)
     name = models.CharField(max_length=30, default="")
     image = models.FileField('File', upload_to='./festival/userImages/')
     link = models.URLField(blank=True)
@@ -73,7 +73,7 @@ class Portfolio(PageType):
 
 # class Folio du portefolio
 class Folio(models.Model):
-    portFolio = models.ForeignKey(Portfolio, default=0)
+    portFolio = models.ForeignKey(Portfolio, blank=True)
     name = models.CharField(max_length=30, default="")
     image = models.FileField('File', upload_to='./festival/userImages/')
     text = models.TextField(max_length=999, default='')
@@ -156,7 +156,7 @@ class Card(models.Model):
     name = models.CharField(max_length=30)
     image = models.FileField('File', upload_to='./festival/userImages/')
     https = models.CharField(max_length=999, default="#")
-    main = models.ForeignKey(Main, default=0, on_delete=models.CASCADE)
+    main = models.ForeignKey(Main, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.name)
@@ -185,4 +185,4 @@ class Index(models.Model):
     name = models.CharField(max_length=30)
     to = models.ForeignKey(Main, null=True, blank=True)
     image = models.FileField('File', upload_to='./festival/userImages/')
-    firstPage = models.ForeignKey(FirstPage, default=0, on_delete=models.CASCADE)
+    firstPage = models.ForeignKey(FirstPage, blank=True, on_delete=models.CASCADE)
