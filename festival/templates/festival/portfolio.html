@@ -19,7 +19,7 @@
             {% for folio in folio.all %}
              <div class="col-lg-6 portfolio-item">
               <div class="card h-100">
-                <a href="{{folio.link}}"><img class="card-img-top" src=/static/festival/media/{{ folio.image }} alt=""></a>
+                <a target="_blank" href="{{folio.link}}"><img class="card-img-top" src=/static/festival/media/{{ folio.image }} alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title text-left">
                     {{folio.name}}

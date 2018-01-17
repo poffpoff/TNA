@@ -240,7 +240,7 @@ body {
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <div class="sidebar-brand">
-                    <a href={{ '/'|add:main.name}}>
+                    <a href={{ '/'|add:main.name|add:'/'}}>
                         <span class="fa solo">
                             <div class="navigation_bar_font">
                             {% if main.use_side_bar_image %}
@@ -255,7 +255,7 @@ body {
                 {% for page in pages.all %}
                 <li>
 
-                    <a href={{ '/'|add:main.name|add:'/'|add:page.normalizedName }} >
+                    <a href={{ '/'|add:main.name|add:'/'|add:page.normalizedName|add:'/' }} >
                             <span class="fa  solo">
                                                         <div class="navigation_bar_font">
 

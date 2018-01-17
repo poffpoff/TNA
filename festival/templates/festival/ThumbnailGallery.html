@@ -4,7 +4,7 @@
       <div class="row text-center text-lg-left">
         {% for thumbnail in thumbnail.all %}
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href={{thumbnail.link}} class="d-block mb-4 h-100">
+          <a target="_blank" href={{thumbnail.link}} class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src=/static/festival/media/{{ thumbnail.image }}  alt={{ thumbnail.name }}>
           </a>
         </div>
