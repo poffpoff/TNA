@@ -25,14 +25,14 @@ SECRET_KEY = 'dx414h&5xvu-!c0ayy7$qnr+(8g4x7!vt9*%7bdpku8m7bqbde'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-   'tracknart.pythonanywhere.com'
-]
+
 
 # for image upload
 MEDIA_URL = '/festival/static/festival/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'festival/static/festival/media')
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Application definition
 
