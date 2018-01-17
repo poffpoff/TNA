@@ -25,7 +25,9 @@ SECRET_KEY = 'dx414h&5xvu-!c0ayy7$qnr+(8g4x7!vt9*%7bdpku8m7bqbde'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+   'tracknart.pythonanywhere.com'
+]
 
 # for image upload
 MEDIA_URL = '/festival/static/festival/media/'
